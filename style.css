@@ -140,7 +140,8 @@ input:focus{
     top: 30%;
     left: 50%;
     transform: translate(-50%, 0);
-    width: 50%;
+    max-width: 700px;
+    width: 90%;
     height: 150px;
     visibility: hidden;
     border-radius: 10px;
@@ -162,15 +163,6 @@ input:focus{
     top: 15%;
 }
 
-.small-message{
-    position: absolute;
-    left: 45%;
-    transform: translate(-37%, 0);
-    margin: auto;
-    font-size: 15px;
-    top: 77%;
-}
-
 .correct-answer{
     position: absolute;
     left: 50%;
@@ -179,6 +171,15 @@ input:focus{
     margin: auto;
     font-size: 20px;
     font-weight: bold;
+}
+
+.small-message{
+    position: absolute;
+    left: 45%;
+    transform: translate(-37%, 0);
+    margin: auto;
+    font-size: 15px;
+    top: 77%;
 }
 
 .close-button{
@@ -222,4 +223,30 @@ table, td {
     .key-spacer{
         flex: 0.5;
     }
-} 
+    .result-message{
+        font-size: 35px;
+    }
+    .correct-answer{
+        font-size: 15px;
+    }
+    .small-message{
+        top: 70%;
+    }
+    .close-button{
+        left: 94%;
+    }
+}
+
+@media (max-width: 409px){
+    
+    .result-message{
+        font-size: 30px;
+    }
+    .correct-answer{
+        font-size: 13px;
+    }
+    .small-message{
+        font-size: 13px;
+        transform: translate(-40%, 0);
+    }
+}
