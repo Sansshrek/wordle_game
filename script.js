@@ -189,6 +189,14 @@ function close_result(){
     document.getElementById("result-div").style.visibility = "hidden"
 }
 
+function show_info(){
+    document.getElementsByClassName("instructions")[0].style.visibility = "visible"
+}
+
+function close_info(){
+    document.getElementsByClassName("instructions")[0].style.visibility = "hidden"
+}
+
 function test(){
     word = get_word()
     test_word_list = []

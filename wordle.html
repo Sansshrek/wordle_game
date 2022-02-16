@@ -10,14 +10,45 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/61ee0a77a0.js" crossorigin="anonymous"></script>
 <body onLoad="generate_word()">
+    <div class="instructions">
+        <button class="instruction-button" onclick="close_info()"><i class="fas fa-times"></i></button>
+        <p>Indovina la Parola nascosta in 6 tentativi.</p>
+        <p>Ogni tentativo deve essere una vera parola di 5 lettere. Premi il pulsante Invio per verificare il tentativo.</p>
+        <p>Dopo ogni tentativo, il colore delle tasselle cambiera mostrandoti quanto vicino sei arrivato alla parola.</p>
+        <hr>
+        <p><b>Esempi</b></p>
+        <div class="input-row-example">
+            <div class="input-box green">S</div>
+            <div class="input-box">E</div>
+            <div class="input-box">D</div>
+            <div class="input-box">I</div>
+            <div class="input-box">A</div>
+        </div>
+        <p>La lettera <b>S</b> è nella parola e nel posto giusto</p>
+        <div class="input-row-example">
+            <div class="input-box">G</div>
+            <div class="input-box yellow">I</div>
+            <div class="input-box">O</div>
+            <div class="input-box">C</div>
+            <div class="input-box">O</div>
+        </div>
+        <p>La lettera <b>I</b> è nella parola ma nel posto sbagliato</p>
+        <p>Se la lettera non è nella parola non viene evidenziata</p>
+        <hr>
+        <p>Questa è una copia in italiano del gioco <b>Wordle</b> del New York Times</p>
+    </div>
     <div id="result-div">
         <div class="reload" onclick="window.location.reload();"></div>
         <p class="result-message"></p>
         <p class="correct-answer"></p>
         <p class="small-message">ricarica la pagina per giocare di nuovo (o clicca qui)</p>
-        <button class="close-button" onclick="close_result()"><i class="fas fa-times"></i></button>
+        <button class="result-button" onclick="close_result()"><i class="fas fa-times"></i></button>
     </div>
     <div class="wrapper">
+        <div class="header">
+            <p>Wordle Ita</p>
+            <button class="info-button" onclick="show_info()"><i class="fa-regular fa-circle-question"></i></i></button>
+        </div>
         <div class="input-container">
             <div class="input-row">
                 <div class="input-box" data-state="empty"></div>
@@ -89,7 +120,7 @@
                 <div class="key-spacer"></div>
             </div>
             <div class="third-row">
-                <button id="Ent" class="input-ent" value="ENTER" onclick="ent()">INVIO</button>
+                <button id="Del" class="input-del" onclick="del()">ELIMINA</button>
                 <button id="Z" class="input-key" value="Z" onclick="input(this.value);">Z</button>
                 <button id="X" class="input-key" value="X" onclick="input(this.value);">X</button>
                 <button id="C" class="input-key" value="C" onclick="input(this.value);">C</button>
@@ -97,7 +128,7 @@
                 <button id="B" class="input-key" value="B" onclick="input(this.value);">B</button>
                 <button id="N" class="input-key" value="N" onclick="input(this.value);">N</button>
                 <button id="M" class="input-key" value="M" onclick="input(this.value);">M</button>
-                <button id="Del" class="input-del" onclick="del()">ELIMINA</button>
+                <button id="Ent" class="input-ent" value="ENTER" onclick="ent()">INVIO</button>
             </div>
         </div>
     <div class="error-container"></div>
