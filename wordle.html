@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <script src="script.js"></script>
+    <script src="word_list.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/61ee0a77a0.js" crossorigin="anonymous"></script>
+<body onLoad="generate_word()">
+    <div id="result-div">
+        <div class="reload" onclick="window.location.reload();"></div>
+        <p class="result-message"></p>
+        <p class="correct-answer"></p>
+        <p class="small-message">ricarica la pagina per giocare di nuovo (o clicca qui)</p>
+        <button class="close-button" onclick="close_result()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="wrapper">
+        <div class="input-container">
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+                <div class="input-box" data-state="empty"></div>
+            </div>
+        </div>
+        <div class="virtual-key">
+            <div class="first-row">
+                <button id="Q" class="input-key" value="Q" onclick="input(this.value);">Q</button>
+                <button id="W" class="input-key" value="W" onclick="input(this.value);">W</button>
+                <button id="E" class="input-key" value="E" onclick="input(this.value);">E</button>
+                <button id="R" class="input-key" value="R" onclick="input(this.value);">R</button>
+                <button id="T" class="input-key" value="T" onclick="input(this.value);">T</button>
+                <button id="Y" class="input-key" value="Y" onclick="input(this.value);">Y</button>
+                <button id="U" class="input-key" value="U" onclick="input(this.value);">U</button>
+                <button id="I" class="input-key" value="I" onclick="input(this.value);">I</button>
+                <button id="O" class="input-key" value="O" onclick="input(this.value);">O</button>
+                <button id="P" class="input-key" value="P" onclick="input(this.value);">P</button>
+            </div>
+            <div class="second-row">
+                <div class="key-spacer"></div>
+                <button id="A" class="input-key" value="A" onclick="input(this.value);">A</button>
+                <button id="S" class="input-key" value="S" onclick="input(this.value);">S</button>
+                <button id="D" class="input-key" value="D" onclick="input(this.value);">D</button>
+                <button id="F" class="input-key" value="F" onclick="input(this.value);">F</button>
+                <button id="G" class="input-key" value="G" onclick="input(this.value);">G</button>
+                <button id="H" class="input-key" value="H" onclick="input(this.value);">H</button>
+                <button id="J" class="input-key" value="J" onclick="input(this.value);">J</button>
+                <button id="K" class="input-key" value="K" onclick="input(this.value);">K</button>
+                <button id="L" class="input-key" value="L" onclick="input(this.value);">L</button>
+                <div class="key-spacer"></div>
+            </div>
+            <div class="third-row">
+                <button id="Ent" class="input-ent" value="ENTER" onclick="ent()">INVIO</button>
+                <button id="Z" class="input-key" value="Z" onclick="input(this.value);">Z</button>
+                <button id="X" class="input-key" value="X" onclick="input(this.value);">X</button>
+                <button id="C" class="input-key" value="C" onclick="input(this.value);">C</button>
+                <button id="V" class="input-key" value="V" onclick="input(this.value);">V</button>
+                <button id="B" class="input-key" value="B" onclick="input(this.value);">B</button>
+                <button id="N" class="input-key" value="N" onclick="input(this.value);">N</button>
+                <button id="M" class="input-key" value="M" onclick="input(this.value);">M</button>
+                <button id="Del" class="input-del" onclick="del()">ELIMINA</button>
+            </div>
+        </div>
+    <div class="error-container"></div>
+    <div id="test-div">
+        <p>Possibili parole</p>
+        <table id="table"></table>
+    </div>
+    </div>
+</body>
+</html>
