@@ -213,7 +213,7 @@ input:focus{
     height: 150px;
     visibility: hidden;
     border-radius: 10px;
-    z-index:3;
+    z-index: 3;
 }
 
 .reload{

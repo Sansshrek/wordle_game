@@ -46,7 +46,6 @@ function del(){
 }
 
 function row_error(error_num){
-    console.log("animation ", error_num)
     all_div = document.getElementsByClassName("input-row")
     focus_div = all_div[cont_row]
     focus_div.classList.add("error")
