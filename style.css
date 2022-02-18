@@ -204,14 +204,18 @@ input:focus{
     background-color: #e3c642;
 }
 
+.gray{
+    background-color: #494949;
+}
+
 #result-div{
     position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%, 0);
-    max-width: 700px;
-    width: 90%;
-    height: 150px;
+    max-width: 600px;
+    width: 80%;
+    height: 100px;
     visibility: hidden;
     border-radius: 10px;
     z-index: 3;
@@ -220,24 +224,37 @@ input:focus{
 .reload{
     width: 95%;
     height: 100%;
+    z-index: 4;
 }
 
 .result-message{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: relative;
     margin: auto;
     font-size: 40px;
     font-weight: bold;
-    top: 15%;
+    top: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .correct-answer{
+    top: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.reload-button{
     position: absolute;
     left: 50%;
-    top: 52%;
     transform: translate(-50%, 0);
-    margin: auto;
+    top: 115px;
+    box-shadow: 0px 3px 5px rgba(182, 182, 182, 0.226);
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 4px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -302,10 +319,7 @@ table, td {
         flex: 0.5;
     }
     .result-message{
-        font-size: 35px;
-    }
-    .correct-answer{
-        font-size: 15px;
+        font-size: 30px;
     }
     .small-message{
         top: 70%;
@@ -319,9 +333,6 @@ table, td {
     
     .result-message{
         font-size: 30px;
-    }
-    .correct-answer{
-        font-size: 13px;
     }
     .small-message{
         font-size: 13px;

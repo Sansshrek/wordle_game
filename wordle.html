@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html translate="no">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,11 +38,10 @@
         <p>Questa è una copia in italiano del gioco <b>Wordle</b> del New York Times</p>
     </div>
     <div id="result-div">
-        <div class="reload" onclick="window.location.reload();"></div>
         <p class="result-message"></p>
         <p class="correct-answer"></p>
-        <p class="small-message">ricarica la pagina per giocare di nuovo (o clicca qui)</p>
         <button class="result-button" onclick="close_result()"><i class="fas fa-times"></i></button>
+        <button class="reload-button" onclick="reset()">Riprova</button>
     </div>
     <div class="wrapper">
         <div class="header">
