@@ -4,6 +4,7 @@ body {
     background: #131212;
     user-select: none;
     font-family: 'Trebuchet MS', sans-serif;
+    overflow: hidden;
     /* display: flex; */
 }
 
