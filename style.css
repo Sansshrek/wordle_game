@@ -1,11 +1,9 @@
 body {
-    height: 100%;
     width: 100%;
     background: #131212;
     user-select: none;
     font-family: 'Trebuchet MS', sans-serif;
-    overflow: hidden;
-    /* display: flex; */
+    position: fixed;
 }
 
 .wrapper{
@@ -27,8 +25,6 @@ body {
 
 .header p{
     position: absolute;
-    display: flex;
-    justify-content: center;
     font-size: 30px;
     font-weight: bold;
     font-family: Georgia, serif;
@@ -91,9 +87,7 @@ body {
     height: 49px;
     text-transform: uppercase;
     font-weight: bold;
-    text-align: center;
     border: 2px solid rgb(77, 77, 77);
-    background-color: transparent;
     color: white;
     font-size: 35px;
     margin: 0px 2px 0px 2px;
@@ -101,10 +95,6 @@ body {
 
 input:focus{
     outline: none;
-}
-
-.virtual-key{
-    margin: auto;
 }
 
 .first-row, .second-row, .third-row{
@@ -115,20 +105,17 @@ input:focus{
 
 .input-key, .input-ent, .input-del{
     background-color: #a2a2a3;
-    box-shadow: 0px 3px 5px rgba(182, 182, 182, 0.226);
+    box-shadow: 0px 3px 5px rgba(202, 202, 202, 0.226);
     border: none;
     width: 43px;
     height: 100%;
-    border-radius: 4px;
+    border-radius: 5px;
     font-weight: bold;
-    color: black;
-    justify-content: center;
-    align-items: center;
 }
 
 .input-key:active, .input-ent:active, .input-del:active{
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .input-ent, .input-del{
@@ -171,17 +158,23 @@ input:focus{
     position: absolute;
     top: 10%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-52%, 0);
     max-width: 500px;
     width: 90%;
-    height: auto;
     background-color: #1f1f20;
     padding: 10px;
-    border-radius: 10px;
-    z-index: 5;
+    border-radius: 15px;
+    z-index: 3;
     color: white;
     font-size: 15px;
     visibility: hidden;
+}
+
+.instruction-button{
+    color: white;
+    top: 1%;
+    left: 93%;
+    font-size: 22px;
 }
 
 .instructions hr{
@@ -213,18 +206,12 @@ input:focus{
     top: 30%;
     left: 50%;
     transform: translate(-50%, 0);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.61);
     max-width: 600px;
     width: 80%;
-    height: 100px;
     visibility: hidden;
     border-radius: 10px;
-    z-index: 3;
-}
-
-.reload{
-    width: 95%;
-    height: 100%;
-    z-index: 4;
+    z-index: 2;
 }
 
 .result-message{
@@ -238,34 +225,10 @@ input:focus{
 }
 
 .correct-answer{
-    top: 45px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: center;
-}
-
-.reload-button{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: 115px;
-    box-shadow: 0px 3px 5px rgba(182, 182, 182, 0.226);
-    border: none;
-    width: 120px;
-    height: 50px;
-    border-radius: 4px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.small-message{
-    position: absolute;
-    left: 45%;
-    transform: translate(-37%, 0);
-    margin: auto;
-    font-size: 15px;
-    top: 77%;
 }
 
 .result-button, .instruction-button{
@@ -275,17 +238,23 @@ input:focus{
 }
 
 .result-button{
-    color: black;
     top: 3%;
     left: 95%;
     font-size: 17px;
 }
 
-.instruction-button{
-    color: white;
-    top: 1%;
-    left: 93.5%;
-    font-size: 22px;
+.reload-button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 13px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.61);
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #test-div{
@@ -308,11 +277,10 @@ table, td {
 @media (max-width: 524px){
     .input-key, .input-ent, .input-del{
         flex: 1;
-        display: flex;
         margin: 0px 2px 0px;
     }
     .first-row,.second-row,.third-row{
-        width: auto;
+        width: 95%;
         display: flex;
     }
     .key-spacer{
@@ -321,21 +289,10 @@ table, td {
     .result-message{
         font-size: 30px;
     }
-    .small-message{
-        top: 70%;
+    .correct_answer{
+        margin-top: 25px;
     }
-    .close-button{
-        left: 94%;
-    }
-}
-
-@media (max-width: 409px){
-    
-    .result-message{
-        font-size: 30px;
-    }
-    .small-message{
-        font-size: 13px;
-        transform: translate(-40%, 0);
+    .result-button{
+        left: 92%;
     }
 }

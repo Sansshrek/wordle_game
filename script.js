@@ -8,7 +8,6 @@ var check_test = false;
 function generate_word(){
     index = Math.floor(Math.random() * random_words.length);
     final_word = random_words[index];
-    final_word = "GAMBE"
     console.log(final_word);
 }
 
@@ -222,8 +221,10 @@ function close_result(){
 
 function show_info(){
     document.getElementsByClassName("instructions")[0].style.visibility = "visible";
+    document.getElementsByClassName("info-button")[0].onclick = close_info
 }
 
 function close_info(){
     document.getElementsByClassName("instructions")[0].style.visibility = "hidden";
+    document.getElementsByClassName("info-button")[0].onclick = show_info
 }
