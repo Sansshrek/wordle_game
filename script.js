@@ -192,7 +192,7 @@ function check_word(word){
                     document.getElementById(box[i].textContent).classList.remove("gray");
                     document.getElementById(box[i].textContent).classList.add("yellow")
                 }
-                if(box_obj[box[i].textContent] != 0){  //risolto bug
+                if(box_obj[box[i].textContent] != 0 && box[i].classList.contains("green") == false){  //risolto bug
                     box[i].classList.add("yellow");
                     box_obj[box[i].textContent]--;
                 }
