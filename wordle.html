@@ -9,9 +9,10 @@
     <script src="word_list.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/61ee0a77a0.js" crossorigin="anonymous"></script>
-<body onLoad="generate_word()">
+<body onLoad="change_table()">
     <div class="instructions">
-        <button class="instruction-button" onclick="close_info()"><i class="fas fa-times"></i></button>
+        <p class="instructions-title"><b>REGOLE</b></p>
+        <button class="close-info-button" onclick="close_info()"><i class="fas fa-times"></i></button>
         <p>Indovina la Parola nascosta in 6 tentativi.</p>
         <p>Ogni tentativo deve essere una vera parola di 5 lettere. Premi il pulsante Invio per verificare il tentativo.</p>
         <p>Dopo ogni tentativo, il colore delle tasselle cambiera mostrandoti quanto vicino sei arrivato alla parola.</p>
@@ -37,6 +38,14 @@
         <hr>
         <p>Questa è una copia in italiano del gioco <b>Wordle</b> del New York Times</p>
     </div>
+    <div class="options">
+        <p class="options-title"><b>IMPOSTAZIONI</b></p>
+        <button class="close-options-button" onclick="close_options()"><i class="fas fa-times"></i></button>
+        <div class="first_option">
+            <p>Numero lettere Parola nascosta</p>
+            <input id="column-number" type="number" placeholder="Da 4 a 7" onchange="change_table()" value="5">
+        </div>
+    </div>
     <div id="result-div">
         <p class="result-message"></p>
         <p class="correct-answer"></p>
@@ -45,8 +54,9 @@
     </div>
     <div class="wrapper">
         <div class="header">
+            <button class="options-button" onclick="show_options()"><i class="fas fa-cog"></i></button>
             <p>Wordle Ita</p>
-            <button class="info-button" onclick="show_info()"><i class="fa-regular fa-circle-question"></i></i></button>
+            <button class="info-button" onclick="show_info()"><i class="far fa-question-circle"></i></button>
         </div>
         <div class="input-container">
             <div class="input-row">
@@ -127,7 +137,7 @@
                 <button id="B" class="input-key" value="B" onclick="input(this.value);">B</button>
                 <button id="N" class="input-key" value="N" onclick="input(this.value);">N</button>
                 <button id="M" class="input-key" value="M" onclick="input(this.value);">M</button>
-                <button id="Ent" class="input-ent" value="ENTER" onclick="ent()">INVIO</button>
+                <button id="Ent" class="input-ent" onclick="ent()">INVIO</button>
             </div>
         </div>
     <div class="error-container"></div>

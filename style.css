@@ -30,13 +30,16 @@ body {
     font-family: Georgia, serif;
 }
 
-.info-button{
+.info-button, .options-button{
     color: white;
-    margin-left: auto;
     margin-right: 10px;
     background-color: transparent;
     border: transparent;
     font-size: 25px;
+}
+
+.info-button{
+    margin-left: auto;
 }
 
 .input-container{
@@ -123,6 +126,7 @@ input:focus{
 }
 
 .error-box{
+    position: relative;
     width: 250px;
     height: 50px;
     background-color: rgb(214, 214, 214);
@@ -138,13 +142,6 @@ input:focus{
     font-size: 20px;
 }
 
-.error-container{
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
 @keyframes fadeOut{
     0%{
         opacity: 1;
@@ -154,27 +151,84 @@ input:focus{
     }
 }
 
-.instructions{
+.error-container{
     position: absolute;
     top: 10%;
     left: 50%;
-    transform: translate(-52%, 0);
+    transform: translate(-50%, 0);
+    z-index: 5;
+}
+
+.instructions, .options{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
     max-width: 500px;
     width: 90%;
     background-color: #1f1f20;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.61);
     padding: 10px;
     border-radius: 15px;
-    z-index: 3;
     color: white;
     font-size: 15px;
     visibility: hidden;
+    z-index: 1;
 }
 
-.instruction-button{
+.instructions{
+    padding-top: 35px;
+}
+
+.options-title, .instructions-title{
+    position: absolute;
+    margin: 0;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.close-info-button, .close-options-button{
     color: white;
-    top: 1%;
-    left: 93%;
+    top: 5px;
+    right: 2%;
     font-size: 22px;
+}
+
+.info-button .far{
+    animation: fadeIn1 0.5s ;
+}
+
+.info-button .fas{
+    animation: fadeIn2 0.5s;
+}
+
+@keyframes fadeIn1{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn2{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.options-button-closing{
+    transform: rotate(90deg);
+    transition-duration: 0.5s;
+}
+
+.options-button-opening{
+    transform: rotate(0deg);
+    transition-duration: 0.5s;
 }
 
 .instructions hr{
@@ -187,6 +241,52 @@ input:focus{
     height:50px;
     margin-top: 7px;
     display: flex;
+}
+
+.first_option{
+    min-height: 40px;
+    height: auto;
+    margin-top: 30px;
+    padding: 5px 0px 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.first_option p{
+    margin-block: 0px;
+    margin-left: 2%;
+}
+
+#column-number{
+    position: absolute;
+    right: 30px;
+    width: 15%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+#column-number::placeholder{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.616);
+}
+
+#column-number:focus {
+    padding-bottom: 6px;
+    font-weight: bold;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+
+.first_option input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
 }
 
 .green{
@@ -231,7 +331,7 @@ input:focus{
     justify-content: center;
 }
 
-.result-button, .instruction-button{
+.result-button, .close-info-button, .close-options-button{
     position: absolute;
     background-color: transparent;
     border: transparent;
@@ -294,5 +394,17 @@ table, td {
     }
     .result-button{
         left: 92%;
+    }
+    .instructions, .options{
+        transform: translate(-52%, 0);
+    }
+    .first_option p{
+        margin-left: -10px;
+    }
+    #column-number{
+        right: 15px;
+    }
+    #column-number::placeholder{
+        font-size: 12px;
     }
 }
