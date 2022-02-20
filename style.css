@@ -350,6 +350,10 @@ input:focus{
     background: var(--label-color);
 }
 
+.invisible:before{
+    transition: all 0s;
+}
+
 .green{
     background-color: #04aa6d;
 }
@@ -463,10 +467,13 @@ table, td {
     .column-option p, .theme-option p{
         margin-left: -10px;
     }
-    #column-number, .toggle-item, .theme-input{
+    #column-number{
         right: 15px;
     }
     #column-number::placeholder{
         font-size: 12px;
+    }
+    .toggle-item, .theme-input{
+        right: 5.4%;
     }
 }

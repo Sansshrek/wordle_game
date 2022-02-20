@@ -290,6 +290,7 @@ function close_info(){
 
 function show_options(){
     document.getElementsByClassName("options")[0].style.visibility = "visible";
+    document.getElementsByClassName("toggle-item")[0].classList.remove("invisible")
     document.getElementsByClassName("options-button")[0].onclick = close_options;
     document.getElementsByClassName("info-button")[0].disabled = true;
     document.getElementsByClassName("fa-cog")[0].classList.add("options-button-closing");
@@ -299,6 +300,7 @@ function show_options(){
 
 function close_options(){
     document.getElementsByClassName("options")[0].style.visibility = "hidden";
+    document.getElementsByClassName("toggle-item")[0].classList.add("invisible");
     document.getElementsByClassName("options-button")[0].onclick = show_options;
     document.getElementsByClassName("info-button")[0].disabled = false;
     document.getElementsByClassName("fa-cog")[0].classList.remove("options-button-closing");
