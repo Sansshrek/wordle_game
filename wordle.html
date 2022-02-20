@@ -41,9 +41,14 @@
     <div class="options">
         <p class="options-title"><b>IMPOSTAZIONI</b></p>
         <button class="close-options-button" onclick="close_options()"><i class="fas fa-times"></i></button>
-        <div class="first_option">
+        <div class="column-option">
             <p>Numero lettere Parola nascosta</p>
             <input id="column-number" type="number" placeholder="Da 4 a 7" onchange="change_table()" value="5">
+        </div>
+        <div class="theme-option">
+            <p>Tema Scuro</p>
+            <input class="theme-input" id="transparent" type="checkbox" onchange="change_theme()" value="5" checked>
+            <label class="toggle-item" for="transparent"></label>
         </div>
     </div>
     <div id="result-div">

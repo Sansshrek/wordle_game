@@ -1,7 +1,7 @@
 var final_word = "";
 var cont_letter = cont_row = 0;
 var check_test = check_option_open = false;
-var column_num = 5;
+var column_num = 5; 
 var set_random_words = set_word_list = [];
 
 function generate_word(){
@@ -203,19 +203,17 @@ function check_word(word){
 
 function show_result(result){
     if(result){
-        document.getElementById("result-div").style.visibility = "visible";
         document.getElementById("result-div").style.backgroundColor = "#04aa6d";
         document.getElementsByClassName("reload-button")[0].style.backgroundColor = "#04aa6d";
         document.getElementsByClassName("result-message")[0].innerHTML = "HAI VINTO!";
-        document.getElementsByClassName("correct-answer")[0].innerHTML = "La parola giusta era "+final_word;
         cont_row = 6;
     }else{
-        document.getElementById("result-div").style.visibility = "visible";
         document.getElementById("result-div").style.backgroundColor = "#d63e2d";
         document.getElementsByClassName("reload-button")[0].style.backgroundColor = "#d63e2d";
         document.getElementsByClassName("result-message")[0].innerHTML = "HAI PERSO!";
-        document.getElementsByClassName("correct-answer")[0].innerHTML = "La parola giusta era "+final_word;
     }
+    document.getElementById("result-div").style.visibility = "visible";
+    document.getElementsByClassName("correct-answer")[0].innerHTML = "La parola giusta era "+final_word;
 }
 
 function ent(){
@@ -308,3 +306,9 @@ function close_options(){
     check_option_open = false
 }
 
+function change_theme(){
+    if(document.getElementsByClassName("theme-input")[0].checked)
+        document.documentElement.className = "dark"
+    else
+        document.documentElement.className = "light"
+}

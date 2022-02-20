@@ -1,6 +1,22 @@
+:root, :root.dark{
+    --background-color: #131212;
+    --text-color: white;
+    --gray-text-color: black;
+    --info-bg-color: #1f1f20;
+    --label-color: #dbdbdb;
+}
+
+:root.light{
+    --background-color: #f1f9f9;
+    --text-color: black;
+    --gray-text-color: white;
+    --info-bg-color: #efefef;
+    --label-color: #3a3a3a;
+}
+
 body {
     width: 100%;
-    background: #131212;
+    background: var(--background-color);
     user-select: none;
     font-family: 'Trebuchet MS', sans-serif;
     position: fixed;
@@ -19,7 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-color);
     border-bottom: 1px solid rgb(77, 77, 77);
 }
 
@@ -31,7 +47,7 @@ body {
 }
 
 .info-button, .options-button{
-    color: white;
+    color: var(--text-color);
     margin-right: 10px;
     background-color: transparent;
     border: transparent;
@@ -91,7 +107,7 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     border: 2px solid rgb(77, 77, 77);
-    color: white;
+    color: var(--text-color);
     font-size: 35px;
     margin: 0px 2px 0px 2px;
 }
@@ -108,7 +124,7 @@ input:focus{
 
 .input-key, .input-ent, .input-del{
     background-color: #a2a2a3;
-    box-shadow: 0px 3px 5px rgba(202, 202, 202, 0.226);
+    box-shadow: 0px 3px 5px rgba(155, 155, 155, 0.226);
     border: none;
     width: 43px;
     height: 100%;
@@ -166,11 +182,11 @@ input:focus{
     transform: translate(-50%, 0);
     max-width: 500px;
     width: 90%;
-    background-color: #1f1f20;
+    background-color: var(--info-bg-color);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.61);
     padding: 10px;
     border-radius: 15px;
-    color: white;
+    color: var(--text-color);
     font-size: 15px;
     visibility: hidden;
     z-index: 1;
@@ -189,7 +205,7 @@ input:focus{
 }
 
 .close-info-button, .close-options-button{
-    color: white;
+    color: var(--text-color);
     top: 5px;
     right: 2%;
     font-size: 22px;
@@ -243,7 +259,7 @@ input:focus{
     display: flex;
 }
 
-.first_option{
+.column-option{
     min-height: 40px;
     height: auto;
     margin-top: 30px;
@@ -252,7 +268,7 @@ input:focus{
     align-items: center;
 }
 
-.first_option p{
+.column-option p, .theme-option p{
     margin-block: 0px;
     margin-left: 2%;
 }
@@ -266,7 +282,7 @@ input:focus{
     outline: 0;
     font-size: 1rem;
     text-align: center;
-    color: white;
+    color: var(--text-color);
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -285,8 +301,53 @@ input:focus{
     border-image-slice: 1;
   }
 
-.first_option input::-webkit-inner-spin-button{
+.column-option input::-webkit-inner-spin-button{
     -webkit-appearance: none;
+}
+
+.theme-option{
+    min-height: 40px;
+    height: auto;
+    padding: 2px 0px 0px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-input{
+    width: 40px;
+    height: 20px;
+    opacity: 0;
+    position: absolute;
+    right: 43px;
+    top: 100px;
+}
+
+.theme-input:checked + label:before {
+    transform: translateX(20px);
+}
+
+.toggle-item {
+    position: absolute;
+    right: 43px;
+    top: 100px;
+    background: transparent;
+    width: 45px;
+    height: 25px;
+    border: 3px solid #6d6d6d;
+    box-sizing: border-box;
+    border-radius: 200px;
+    cursor: pointer;
+}
+.toggle-item:before {
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease;
+    border-radius: 2em;
+    width: 15px;
+    height: 15px;
+    top: 2.4px;
+    left: 2px;
+    background: var(--label-color);
 }
 
 .green{
@@ -299,6 +360,7 @@ input:focus{
 
 .gray{
     background-color: #494949;
+    color: var(--gray-text-color);
 }
 
 #result-div{
@@ -325,7 +387,7 @@ input:focus{
 }
 
 .correct-answer{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -389,8 +451,8 @@ table, td {
     .result-message{
         font-size: 30px;
     }
-    .correct_answer{
-        margin-top: 25px;
+    .correct-answer{
+        font-size: 16px;
     }
     .result-button{
         left: 92%;
@@ -398,10 +460,10 @@ table, td {
     .instructions, .options{
         transform: translate(-52%, 0);
     }
-    .first_option p{
+    .column-option p, .theme-option p{
         margin-left: -10px;
     }
-    #column-number{
+    #column-number, .toggle-item, .theme-input{
         right: 15px;
     }
     #column-number::placeholder{
